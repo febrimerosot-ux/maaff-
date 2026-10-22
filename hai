@@ -1,0 +1,207 @@
+
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For My Love ❤️</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: linear-gradient(135deg, #ffe0ec, #fff5f8);
+  color: #9d315c;
+  overflow-x: hidden;
+}
+
+.card {
+  width: 100%;
+  max-width: 380px;
+  background: white;
+  padding: 30px 22px;
+  border-radius: 25px;
+  box-shadow: 0 10px 35px #e7548025;
+}
+
+.heart {
+  font-size: 65px;
+  animation: beat 1s infinite;
+}
+
+h1 {
+  color: #e83e79;
+  font-size: 27px;
+}
+
+p {
+  line-height: 1.8;
+}
+
+button {
+  background: #ed4b85;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 15px 22px;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+button:active {
+  transform: scale(.96);
+}
+
+#surat {
+  display: none;
+  margin-top: 22px;
+  line-height: 1.9;
+  animation: muncul 1s;
+}
+
+#surat h2 {
+  color: #e83e79;
+}
+
+.hati {
+  position: fixed;
+  bottom: -30px;
+  font-size: 25px;
+  animation: terbang 4s linear forwards;
+  pointer-events: none;
+}
+
+@keyframes beat {
+  50% { transform: scale(1.15); }
+}
+
+@keyframes muncul {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes terbang {
+  to {
+    transform: translateY(-110vh) rotate(30deg);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <div class="heart">💗</div>
+
+  <h1>Hai, Sayangku 🥺</h1>
+
+  <p>
+    Aku punya sesuatu yang ingin aku
+    sampaikan ke kamu...
+  </p>
+
+  <p>Jangan marah lagi yaa? 🥹💕</p>
+
+  <button onclick="bukaSurat()">
+    Klik di sini, sayang ❤️
+  </button>
+
+  <div id="surat">
+    <h2>Maafin aku ya, sayangku 😭❤️</h2>
+
+    <p>
+      Aku minta maaf kalau aku sudah bikin
+      kamu sedih, kecewa, atau sakit hati.
+      Aku tahu mungkin kata maaf saja
+      nggak cukup untuk memperbaiki semuanya.
+    </p>
+
+    <p>
+      Tapi aku benar-benar menyesal, sayang.
+      Aku nggak mau menganggap remeh
+      perasaan kamu.
+    </p>
+
+    <p>
+      Kamu itu berharga banget buat aku.
+      Aku ingin belajar jadi lebih baik,
+      lebih memahami kamu, dan menjaga
+      perasaan kamu lewat tindakan nyata.
+    </p>
+
+    <p>
+      Kalau kamu masih butuh waktu,
+      aku akan menghargainya.
+      Kalau kamu sudah siap, aku ingin
+      kita ngobrol baik-baik lagi. 🥺
+    </p>
+
+    <h2>I'm sorry, my love 💗</h2>
+
+    <div class="heart">🧸💐❤️</div>
+
+    <p>
+      Aku sayang kamu, hari ini dan
+      seterusnya. 💋
+    </p>
+
+    <button onclick="kirimWA()">
+      💌 Balas aku di WhatsApp
+    </button>
+  </div>
+</div>
+
+<script>
+function bukaSurat() {
+  document.getElementById("surat").style.display = "block";
+
+  document.querySelector(".card").scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+
+  for (let i = 0; i < 18; i++) {
+    setTimeout(() => {
+      const h = document.createElement("div");
+      h.className = "hati";
+      h.textContent = ["❤️", "💕", "💗", "💖"][Math.floor(Math.random() * 4)];
+      h.style.left = Math.random() * 95 + "vw";
+      document.body.appendChild(h);
+      setTimeout(() => h.remove(), 4000);
+    }, i * 120);
+  }
+}
+
+function kirimWA() {
+  const nomor = prompt(
+    "Masukkan nomor WhatsApp kamu dengan kode negara, tanpa tanda +. Contoh: 6285725025851"
+  );
+
+  if (!nomor) return;
+
+  const pesan = encodeURIComponent(
+    "Aku sudah baca pesan kamu ❤️ Yuk kita ngobrol baik-baik."
+  );
+
+  window.open(
+    "https://wa.me/" + nomor.replace(/\D/g, "") + "?text=" + pesan,
+    "_blank"
+  );
+}
+</script>
+
+</body>
+</html>
